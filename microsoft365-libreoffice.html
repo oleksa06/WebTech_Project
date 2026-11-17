@@ -1,172 +1,181 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <title>Microsoft 365 → LibreOffice | Gratis statt teuer</title>
-  <meta name="description" content="Microsoft 365 oder LibreOffice? Unser Praxistest (Büro und Office) mit Messwerten, Bewertung und eigenen Arbeitsproben.">
-  <link rel="icon" href="img/maskottchen/maskottchen.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Microsoft 365 → LibreOffice | Gratis statt teuer</title>
+    <meta name="description"
+        content="Microsoft 365 oder LibreOffice? Unser Praxistest (Büro und Office) mit Messwerten, Bewertung und eigenen Arbeitsproben.">
+    <link rel="icon" href="img/maskottchen/maskottchen.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body data-seite="microsoft365-libreoffice">
-  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <!-- Kopfbereich mit Logo und Hauptnavigation -->
-  <header class="kopf">
-    <div class="kopf-innen">
-      <a class="logo" href="index.html">Gratis statt teuer</a>
-      <nav class="hauptnavigation" aria-label="Hauptnavigation">
-        <ul>
-          <li><a href="index.html">Start</a></li>
-          <li><a href="so-haben-wir-getestet.html">So haben wir getestet</a></li>
-          <li><a href="ueber-das-projekt.html">Über das Projekt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- Kopfbereich mit Logo und Hauptnavigation -->
+    <header class="kopf">
+        <div class="kopf-innen">
+            <a class="logo" href="index.html">Gratis statt teuer</a>
+            <nav class="hauptnavigation" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="so-haben-wir-getestet.html">So haben wir getestet</a></li>
+                    <li><a href="ueber-das-projekt.html">Über das Projekt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main id="inhalt">
+    <main id="inhalt">
 
-    <!-- Brotkrumen: Wo bin ich? -->
-    <nav class="brotkrumen" aria-label="Brotkrumen">
-      <ol>
-        <li><a href="index.html">Start</a><span class="brotkrumen-trenner" aria-hidden="true">›</span></li>
-        <li><a href="microsoft365-libreoffice.html" aria-current="page">Microsoft 365 → LibreOffice</a></li>
-      </ol>
-    </nav>
+        <!-- Brotkrumen: Wo bin ich? -->
+        <nav class="brotkrumen" aria-label="Brotkrumen">
+            <ol>
+                <li><a href="index.html">Start</a><span class="brotkrumen-trenner" aria-hidden="true">›</span></li>
+                <li><a href="microsoft365-libreoffice.html" aria-current="page">Microsoft 365 → LibreOffice</a></li>
+            </ol>
+        </nav>
 
-    <h1>Microsoft 365 <span aria-hidden="true">→</span><span class="sr-only">, Alternative:</span> LibreOffice</h1>
+        <h1>Microsoft 365 <span aria-hidden="true">→</span><span class="sr-only">, Alternative:</span> LibreOffice</h1>
 
-    <!-- Wird von js/vergleich.js ersetzt -->
-    <p class="hinweis" id="lade-hinweis" role="status">Inhalte werden geladen …</p>
-    <noscript>
-      <p class="hinweis hinweis-fehler">Für die Vergleichsdaten wird JavaScript benötigt.</p>
-    </noscript>
+        <!-- Wird von js/vergleich.js ersetzt -->
+        <p class="hinweis" id="lade-hinweis" role="status">Inhalte werden geladen …</p>
+        <noscript>
+            <p class="hinweis hinweis-fehler">Für die Vergleichsdaten wird JavaScript benötigt.</p>
+        </noscript>
 
-    <!-- Alle Abschnitte, die aus data/microsoft365-libreoffice.json gefüllt werden -->
-    <div id="vergleich-inhalt" hidden>
+        <!-- Alle Abschnitte, die aus data/microsoft365-libreoffice.json gefüllt werden -->
+        <div id="vergleich-inhalt" hidden>
 
-      <section aria-labelledby="titel-kurz">
-        <h2 id="titel-kurz">Das Wichtigste in Kürze</h2>
-        <p id="kurzfassung"></p>
-      </section>
+            <section aria-labelledby="titel-kurz">
+                <h2 id="titel-kurz">Das Wichtigste in Kürze</h2>
+                <p id="kurzfassung"></p>
+            </section>
 
-      <section aria-labelledby="titel-steckbrief">
-        <h2 id="titel-steckbrief">Steckbrief</h2>
-      <div class="tabelle-scroll" tabindex="0" role="region" aria-label="Steckbrief: Microsoft 365 und LibreOffice">
-        <table>
-          <caption>Steckbrief: Microsoft 365 und LibreOffice</caption>
-          <thead>
-            <tr>
-              <th scope="col">Merkmal</th>
-              <th scope="col">Microsoft 365</th>
-              <th scope="col">LibreOffice</th>
-            </tr>
-          </thead>
-          <tbody id="steckbrief-zeilen"></tbody>
-        </table>
-      </div>
-      </section>
+            <section aria-labelledby="titel-steckbrief">
+                <h2 id="titel-steckbrief">Steckbrief</h2>
+                <div class="tabelle-scroll" tabindex="0" role="region"
+                    aria-label="Steckbrief: Microsoft 365 und LibreOffice">
+                    <table>
+                        <caption>Steckbrief: Microsoft 365 und LibreOffice</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Merkmal</th>
+                                <th scope="col">Microsoft 365</th>
+                                <th scope="col">LibreOffice</th>
+                            </tr>
+                        </thead>
+                        <tbody id="steckbrief-zeilen"></tbody>
+                    </table>
+                </div>
+            </section>
 
-      <div class="vor-nachteile">
-        <section class="karte karte-besser" aria-labelledby="titel-besser">
-          <h2 id="titel-besser"><span class="symbol" aria-hidden="true">✓</span>Wo LibreOffice besser ist</h2>
-          <ul class="punkte-liste" id="liste-besser"></ul>
+            <div class="vor-nachteile">
+                <section class="karte karte-besser" aria-labelledby="titel-besser">
+                    <h2 id="titel-besser"><span class="symbol" aria-hidden="true">✓</span>Wo LibreOffice besser ist</h2>
+                    <ul class="punkte-liste" id="liste-besser"></ul>
+                </section>
+                <section class="karte karte-schlechter" aria-labelledby="titel-schlechter">
+                    <h2 id="titel-schlechter"><span class="symbol" aria-hidden="true">✗</span>Wo LibreOffice schlechter
+                        ist</h2>
+                    <ul class="punkte-liste" id="liste-schlechter"></ul>
+                </section>
+            </div>
+
+            <section aria-labelledby="titel-messwerte">
+                <h2 id="titel-messwerte">Messwerte</h2>
+                <div class="tabelle-scroll" tabindex="0" role="region"
+                    aria-label="Messwerte: Microsoft 365 und LibreOffice im Vergleich">
+                    <table>
+                        <caption>Messwerte: Microsoft 365 und LibreOffice im Vergleich</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Messung</th>
+                                <th scope="col">Microsoft 365</th>
+                                <th scope="col">LibreOffice</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messwerte-zeilen"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section aria-labelledby="titel-bewertung">
+                <h2 id="titel-bewertung">Bewertung</h2>
+                <p>Je Kriterium 1 bis 5 Punkte, nach dem Schema auf der Seite <a href="so-haben-wir-getestet.html">So
+                        haben wir getestet</a>.</p>
+                <div class="tabelle-scroll" tabindex="0" role="region"
+                    aria-label="Bewertung: Microsoft 365 und LibreOffice (1 bis 5 Punkte)">
+                    <table>
+                        <caption>Bewertung: Microsoft 365 und LibreOffice (1 bis 5 Punkte)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Kriterium</th>
+                                <th scope="col">Microsoft 365</th>
+                                <th scope="col">LibreOffice</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bewertung-zeilen"></tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="row">Gesamt (max. 15)</th>
+                                <td id="gesamt-bezahl"></td>
+                                <td id="gesamt-gratis"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+            <section aria-labelledby="titel-arbeitsproben">
+                <h2 id="titel-arbeitsproben">Arbeitsproben</h2>
+                <div class="arbeitsproben" id="arbeitsproben-raster"></div>
+            </section>
+
+            <section aria-labelledby="titel-fazit">
+                <h2 id="titel-fazit">Fazit</h2>
+                <p id="fazit"></p>
+            </section>
+
+        </div>
+
+        <!-- Links zu den anderen Vergleichen (steht fest im HTML) -->
+        <section aria-labelledby="titel-weitere">
+            <h2 id="titel-weitere">Weitere Vergleiche</h2>
+            <ul class="weitere-vergleiche">
+                <li><a class="knopf" href="photoshop-gimp.html">Photoshop → GIMP</a></li>
+                <li><a class="knopf" href="illustrator-inkscape.html">Illustrator → Inkscape</a></li>
+                <li><a class="knopf" href="premiere-davinci.html">Premiere Pro → DaVinci Resolve</a></li>
+            </ul>
         </section>
-        <section class="karte karte-schlechter" aria-labelledby="titel-schlechter">
-          <h2 id="titel-schlechter"><span class="symbol" aria-hidden="true">✗</span>Wo LibreOffice schlechter ist</h2>
-          <ul class="punkte-liste" id="liste-schlechter"></ul>
-        </section>
-      </div>
 
-      <section aria-labelledby="titel-messwerte">
-        <h2 id="titel-messwerte">Messwerte</h2>
-      <div class="tabelle-scroll" tabindex="0" role="region" aria-label="Messwerte: Microsoft 365 und LibreOffice im Vergleich">
-        <table>
-          <caption>Messwerte: Microsoft 365 und LibreOffice im Vergleich</caption>
-          <thead>
-            <tr>
-              <th scope="col">Messung</th>
-              <th scope="col">Microsoft 365</th>
-              <th scope="col">LibreOffice</th>
-            </tr>
-          </thead>
-          <tbody id="messwerte-zeilen"></tbody>
-        </table>
-      </div>
-      </section>
+    </main>
 
-      <section aria-labelledby="titel-bewertung">
-        <h2 id="titel-bewertung">Bewertung</h2>
-        <p>Je Kriterium 1 bis 5 Punkte, nach dem Schema auf der Seite <a href="so-haben-wir-getestet.html">So haben wir getestet</a>.</p>
-      <div class="tabelle-scroll" tabindex="0" role="region" aria-label="Bewertung: Microsoft 365 und LibreOffice (1 bis 5 Punkte)">
-        <table>
-          <caption>Bewertung: Microsoft 365 und LibreOffice (1 bis 5 Punkte)</caption>
-          <thead>
-            <tr>
-              <th scope="col">Kriterium</th>
-              <th scope="col">Microsoft 365</th>
-              <th scope="col">LibreOffice</th>
-            </tr>
-          </thead>
-          <tbody id="bewertung-zeilen"></tbody>
-          <tfoot>
-            <tr>
-              <th scope="row">Gesamt (max. 15)</th>
-              <td id="gesamt-bezahl"></td>
-              <td id="gesamt-gratis"></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      </section>
+    <!-- Fußzeile mit allen wichtigen Links -->
+    <footer class="fuss">
+        <div class="fuss-innen">
+            <nav aria-label="Fußzeile">
+                <ul>
+                    <li><a href="photoshop-gimp.html">Photoshop → GIMP</a></li>
+                    <li><a href="illustrator-inkscape.html">Illustrator → Inkscape</a></li>
+                    <li><a href="microsoft365-libreoffice.html">Microsoft 365 → LibreOffice</a></li>
+                    <li><a href="premiere-davinci.html">Premiere Pro → DaVinci Resolve</a></li>
+                    <li><a href="so-haben-wir-getestet.html">So haben wir getestet</a></li>
+                    <li><a href="ueber-das-projekt.html">Über das Projekt</a></li>
+                    <li><a href="ueber-das-projekt.html#impressum">Impressum</a></li>
+                    <li><a href="ueber-das-projekt.html#bildnachweis">Bildnachweis</a></li>
+                </ul>
+            </nav>
+            <p>© 2026 [Name A], [Name B] – Studienprojekt an der FH [FOLGT]</p>
+        </div>
+    </footer>
 
-      <section aria-labelledby="titel-arbeitsproben">
-        <h2 id="titel-arbeitsproben">Arbeitsproben</h2>
-        <div class="arbeitsproben" id="arbeitsproben-raster"></div>
-      </section>
-
-      <section aria-labelledby="titel-fazit">
-        <h2 id="titel-fazit">Fazit</h2>
-        <p id="fazit"></p>
-      </section>
-
-    </div>
-
-    <!-- Links zu den anderen Vergleichen (steht fest im HTML) -->
-    <section aria-labelledby="titel-weitere">
-      <h2 id="titel-weitere">Weitere Vergleiche</h2>
-      <ul class="weitere-vergleiche">
-        <li><a class="knopf" href="photoshop-gimp.html">Photoshop → GIMP</a></li>
-        <li><a class="knopf" href="illustrator-inkscape.html">Illustrator → Inkscape</a></li>
-        <li><a class="knopf" href="premiere-davinci.html">Premiere Pro → DaVinci Resolve</a></li>
-      </ul>
-    </section>
-
-  </main>
-
-  <!-- Fußzeile mit allen wichtigen Links -->
-  <footer class="fuss">
-    <div class="fuss-innen">
-      <nav aria-label="Fußzeile">
-        <ul>
-          <li><a href="photoshop-gimp.html">Photoshop → GIMP</a></li>
-          <li><a href="illustrator-inkscape.html">Illustrator → Inkscape</a></li>
-          <li><a href="microsoft365-libreoffice.html">Microsoft 365 → LibreOffice</a></li>
-          <li><a href="premiere-davinci.html">Premiere Pro → DaVinci Resolve</a></li>
-          <li><a href="so-haben-wir-getestet.html">So haben wir getestet</a></li>
-          <li><a href="ueber-das-projekt.html">Über das Projekt</a></li>
-          <li><a href="ueber-das-projekt.html#impressum">Impressum</a></li>
-          <li><a href="ueber-das-projekt.html#bildnachweis">Bildnachweis</a></li>
-        </ul>
-      </nav>
-      <p>© 2026 [Name A], [Name B] – Studienprojekt an der FH [FOLGT]</p>
-    </div>
-  </footer>
-
-  <script src="js/vergleich.js"></script>
-  <script src="js/maskottchen-komponente.js"></script>
-  <script src="js/maskottchen.js"></script>
+    <script src="js/vergleich.js"></script>
+    <script src="js/maskottchen-komponente.js"></script>
+    <script src="js/maskottchen.js"></script>
 </body>
+
 </html>
