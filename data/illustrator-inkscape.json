@@ -1,0 +1,104 @@
+{
+  "bezahlprogramm": "Adobe Illustrator",
+  "alternative": "Inkscape",
+  "kurzfassung": "[FOLGT] Ein Absatz: Wofür eignet sich Inkscape statt Illustrator?",
+  "steckbrief": [
+    {
+      "merkmal": "Hersteller",
+      "bezahl": "Adobe",
+      "gratis": "Inkscape-Projekt (Open Source)"
+    },
+    {
+      "merkmal": "Preis",
+      "bezahl": "[FOLGT]",
+      "gratis": "kostenlos"
+    },
+    {
+      "merkmal": "Getestete Version",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "merkmal": "Betriebssysteme",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "merkmal": "Testdatum",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    }
+  ],
+  "besser": [
+    "[FOLGT]",
+    "[FOLGT]",
+    "[FOLGT]"
+  ],
+  "schlechter": [
+    "[FOLGT]",
+    "[FOLGT]",
+    "[FOLGT]"
+  ],
+  "messwerte": [
+    {
+      "messung": "Installationsgröße",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "messung": "Zeit für Aufgabe 1",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "messung": "Zeit für Aufgabe 2",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "messung": "Exportzeit",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    }
+  ],
+  "bewertung": [
+    {
+      "kriterium": "Bedienung",
+      "bezahl": 0,
+      "gratis": 0
+    },
+    {
+      "kriterium": "Funktionsumfang",
+      "bezahl": 0,
+      "gratis": 0
+    },
+    {
+      "kriterium": "Ergebnis",
+      "bezahl": 0,
+      "gratis": 0
+    }
+  ],
+  "arbeitsproben": [
+    {
+      "bild": "img/platzhalter.svg",
+      "alt": "[FOLGT] Beschreibung des Bildes",
+      "beschriftung": "Illustrator – Version [FOLGT], getestet am [FOLGT]"
+    },
+    {
+      "bild": "img/platzhalter.svg",
+      "alt": "[FOLGT] Beschreibung des Bildes",
+      "beschriftung": "Inkscape – Version [FOLGT], getestet am [FOLGT]"
+    },
+    {
+      "bild": "img/platzhalter.svg",
+      "alt": "[FOLGT] Beschreibung des Bildes",
+      "beschriftung": "Illustrator – Version [FOLGT], getestet am [FOLGT]"
+    },
+    {
+      "bild": "img/platzhalter.svg",
+      "alt": "[FOLGT] Beschreibung des Bildes",
+      "beschriftung": "Inkscape – Version [FOLGT], getestet am [FOLGT]"
+    }
+  ],
+  "fazit": "[FOLGT]"
+}

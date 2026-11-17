@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <title>Bild folgt</title>
+  <rect x="0" y="0" width="800" height="500" rx="12" fill="#251C30"/>
+  <rect x="16" y="16" width="768" height="468" rx="8" fill="none" stroke="#76668A" stroke-width="2" stroke-dasharray="12 10"/>
+  <text x="400" y="265" text-anchor="middle" font-family="system-ui, Arial, sans-serif" font-size="40" fill="#B5AAC2">Bild folgt</text>
+</svg>

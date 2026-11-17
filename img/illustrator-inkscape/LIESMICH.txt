@@ -1,0 +1,26 @@
+LIESMICH – Bilder für den Vergleich Illustrator → Inkscape
+===========================================================
+
+In diesen Ordner kommen eure eigenen Screenshots und Arbeitsproben
+aus den Tests. Bitte nur Kleinbuchstaben, keine Umlaute, keine Leerzeichen.
+
+Vorschlag für die Dateinamen:
+
+  arbeitsprobe-1-illustrator.png
+  arbeitsprobe-1-inkscape.png
+  arbeitsprobe-2-illustrator.png
+  arbeitsprobe-2-inkscape.png
+
+Tipp: Bilder vorher verkleinern (z. B. 1200 px breit) und im
+Seitenverhältnis 16:10 speichern, dann passen sie gut in das Raster.
+
+Danach in data/illustrator-inkscape.json im Bereich "arbeitsproben" den Pfad
+ändern, zum Beispiel:
+
+  "bild": "img/illustrator-inkscape/arbeitsprobe-1-illustrator.png"
+
+Außerdem "alt" (was ist auf dem Bild zu sehen?) und "beschriftung"
+(Programm, Version, Testdatum) ausfüllen.
+
+Wenn ein Foto als Ausgangsmaterial benutzt wurde: Quelle und Lizenz
+im Bildnachweis auf ueber-das-projekt.html eintragen.

@@ -1,0 +1,26 @@
+LIESMICH – Bilder für den Vergleich Microsoft 365 → LibreOffice
+===========================================================
+
+In diesen Ordner kommen eure eigenen Screenshots und Arbeitsproben
+aus den Tests. Bitte nur Kleinbuchstaben, keine Umlaute, keine Leerzeichen.
+
+Vorschlag für die Dateinamen:
+
+  arbeitsprobe-1-microsoft365.png
+  arbeitsprobe-1-libreoffice.png
+  arbeitsprobe-2-microsoft365.png
+  arbeitsprobe-2-libreoffice.png
+
+Tipp: Bilder vorher verkleinern (z. B. 1200 px breit) und im
+Seitenverhältnis 16:10 speichern, dann passen sie gut in das Raster.
+
+Danach in data/microsoft365-libreoffice.json im Bereich "arbeitsproben" den Pfad
+ändern, zum Beispiel:
+
+  "bild": "img/microsoft365-libreoffice/arbeitsprobe-1-microsoft365.png"
+
+Außerdem "alt" (was ist auf dem Bild zu sehen?) und "beschriftung"
+(Programm, Version, Testdatum) ausfüllen.
+
+Wenn ein Foto als Ausgangsmaterial benutzt wurde: Quelle und Lizenz
+im Bildnachweis auf ueber-das-projekt.html eintragen.

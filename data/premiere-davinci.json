@@ -1,0 +1,104 @@
+{
+  "bezahlprogramm": "Adobe Premiere Pro",
+  "alternative": "DaVinci Resolve (kostenlose Version)",
+  "kurzfassung": "[FOLGT] Ein Absatz: Wofür eignet sich DaVinci Resolve statt Premiere Pro?",
+  "steckbrief": [
+    {
+      "merkmal": "Hersteller",
+      "bezahl": "Adobe",
+      "gratis": "Blackmagic Design"
+    },
+    {
+      "merkmal": "Preis",
+      "bezahl": "[FOLGT]",
+      "gratis": "kostenlos"
+    },
+    {
+      "merkmal": "Getestete Version",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "merkmal": "Betriebssysteme",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "merkmal": "Testdatum",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    }
+  ],
+  "besser": [
+    "[FOLGT]",
+    "[FOLGT]",
+    "[FOLGT]"
+  ],
+  "schlechter": [
+    "[FOLGT]",
+    "[FOLGT]",
+    "[FOLGT]"
+  ],
+  "messwerte": [
+    {
+      "messung": "Installationsgröße",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "messung": "Zeit für Aufgabe 1",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "messung": "Zeit für Aufgabe 2",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    },
+    {
+      "messung": "Exportzeit",
+      "bezahl": "[FOLGT]",
+      "gratis": "[FOLGT]"
+    }
+  ],
+  "bewertung": [
+    {
+      "kriterium": "Bedienung",
+      "bezahl": 0,
+      "gratis": 0
+    },
+    {
+      "kriterium": "Funktionsumfang",
+      "bezahl": 0,
+      "gratis": 0
+    },
+    {
+      "kriterium": "Ergebnis",
+      "bezahl": 0,
+      "gratis": 0
+    }
+  ],
+  "arbeitsproben": [
+    {
+      "bild": "img/platzhalter.svg",
+      "alt": "[FOLGT] Beschreibung des Bildes",
+      "beschriftung": "Premiere Pro – Version [FOLGT], getestet am [FOLGT]"
+    },
+    {
+      "bild": "img/platzhalter.svg",
+      "alt": "[FOLGT] Beschreibung des Bildes",
+      "beschriftung": "DaVinci Resolve – Version [FOLGT], getestet am [FOLGT]"
+    },
+    {
+      "bild": "img/platzhalter.svg",
+      "alt": "[FOLGT] Beschreibung des Bildes",
+      "beschriftung": "Premiere Pro – Version [FOLGT], getestet am [FOLGT]"
+    },
+    {
+      "bild": "img/platzhalter.svg",
+      "alt": "[FOLGT] Beschreibung des Bildes",
+      "beschriftung": "DaVinci Resolve – Version [FOLGT], getestet am [FOLGT]"
+    }
+  ],
+  "fazit": "[FOLGT]"
+}

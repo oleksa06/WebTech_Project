@@ -1,0 +1,26 @@
+LIESMICH – Bilder für den Vergleich Premiere Pro → DaVinci Resolve
+===========================================================
+
+In diesen Ordner kommen eure eigenen Screenshots und Arbeitsproben
+aus den Tests. Bitte nur Kleinbuchstaben, keine Umlaute, keine Leerzeichen.
+
+Vorschlag für die Dateinamen:
+
+  arbeitsprobe-1-premiere.jpg
+  arbeitsprobe-1-davinci.jpg
+  arbeitsprobe-2-premiere.jpg
+  arbeitsprobe-2-davinci.jpg
+
+Tipp: Bilder vorher verkleinern (z. B. 1200 px breit) und im
+Seitenverhältnis 16:10 speichern, dann passen sie gut in das Raster.
+
+Danach in data/premiere-davinci.json im Bereich "arbeitsproben" den Pfad
+ändern, zum Beispiel:
+
+  "bild": "img/premiere-davinci/arbeitsprobe-1-premiere.jpg"
+
+Außerdem "alt" (was ist auf dem Bild zu sehen?) und "beschriftung"
+(Programm, Version, Testdatum) ausfüllen.
+
+Wenn ein Foto als Ausgangsmaterial benutzt wurde: Quelle und Lizenz
+im Bildnachweis auf ueber-das-projekt.html eintragen.
