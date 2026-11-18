@@ -1,0 +1,178 @@
+/* ==========================================================
+   Maskottchen – Stylesheet
+   Alles, was nur zum Maskottchen gehört. Wird nach
+   css/style.css geladen und benutzt dessen Variablen.
+   Ohne diese Datei (und ohne den Ordner maskottchen/)
+   funktioniert die Seite trotzdem.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. Platz unten
+   Nur wegen des Maskottchens: unten so viel Abstand wie der
+   Maskottchen-Knopf hoch ist plus Abstand zum Rand, damit das
+   Maskottchen nie die Fußzeile verdeckt.
+   ---------------------------------------------------------- */
+
+body {
+    padding-bottom: calc(4rem + 1rem);
+}
+
+
+/* ----------------------------------------------------------
+   2. Maskottchen und Sprechblase
+   ---------------------------------------------------------- */
+
+.maskottchen {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 100;
+}
+
+/* Der Knopf: 64px auf dem Handy, 96px auf dem Laptop */
+.maskottchen-knopf {
+    position: relative;
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: var(--rundung);
+    cursor: pointer;
+}
+
+/* Die Komponente zeichnet den Schleim in eine quadratische Szene
+   mit viel leerem Rand. Der Körper ist nur ca. 66 % so breit wie
+   die Szene und endet unten bei ca. 75 % der Höhe.
+   - width/height 150 %: 66 % × 1,5 ≈ 100 % → der Körper ist so
+     breit wie der Knopf.
+   - left -25 %: das Element ist 50 % breiter als der Knopf, die
+     Hälfte davon (25 %) schieben wir nach links → mittig.
+   - top -13 %: der Körper endet bei 75 % × 1,5 ≈ 113 % der
+     Knopfhöhe; 13 % nach oben → er steht genau auf der Unterkante.
+   pointer-events: none, damit der überstehende Rand keine Klicks
+   abfängt. Alle Klicks gehen an den Knopf. */
+.maskottchen-knopf slime-mascot {
+    position: absolute;
+    top: -13%;
+    left: -25%;
+    display: block;
+    width: 150%;
+    height: 150%;
+    pointer-events: none;
+}
+
+/* Ersatzbild ohne Animation (schon eng zugeschnitten) */
+.maskottchen-bild {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+}
+
+/* Sprechblase über dem Maskottchen */
+.maskottchen-blase {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.9rem);
+    width: calc(100vw - 2rem);
+    max-width: 17.5rem;
+    padding: 0.9rem 2.75rem 0.9rem 1rem;
+    background-color: var(--flaeche);
+    color: var(--text);
+    border: 1px solid var(--akzent-hell);
+    border-radius: var(--rundung);
+
+    /* Geschlossen: durchsichtig.
+     visibility: hidden nimmt die Blase auch aus der Tab-Reihenfolge
+     und versteckt sie vor dem Screenreader. */
+    opacity: 0;
+    visibility: hidden;
+
+    /* Schließen (150 ms): visibility wechselt erst am Ende (Verzögerung
+     150 ms), damit man das Ausblenden noch sieht */
+    transition: opacity 150ms, visibility 0s 150ms;
+}
+
+/* Offen: die Klasse "ist-offen" setzt bzw. entfernt maskottchen.js.
+   Bei "Bewegung reduzieren" schaltet die allgemeine Regel in
+   css/style.css (Abschnitt 9) alle Übergänge aus: die Blase ist
+   dann sofort da bzw. weg. */
+.maskottchen-blase.ist-offen {
+    opacity: 1;
+    visibility: visible;
+
+    /* Öffnen (220 ms): visibility wechselt sofort, dann wird eingeblendet */
+    transition: opacity 220ms;
+}
+
+/* Kleines Schwänzchen zum Maskottchen */
+.maskottchen-blase::after {
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    bottom: -0.4rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    background-color: var(--flaeche);
+    border-right: 1px solid var(--akzent-hell);
+    border-bottom: 1px solid var(--akzent-hell);
+    transform: rotate(45deg);
+}
+
+.maskottchen-text {
+    margin: 0;
+}
+
+.maskottchen-schliessen {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    background: none;
+    color: var(--text-leise);
+    font-size: 1.4rem;
+    line-height: 1;
+    border: none;
+    border-radius: var(--rundung-klein);
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.maskottchen-schliessen:hover {
+    background-color: var(--flaeche-hover);
+    color: var(--text);
+}
+
+
+/* ----------------------------------------------------------
+   3. Media Queries
+   ---------------------------------------------------------- */
+
+/* Laptop: größerer Knopf (96px), dazu passend mehr Platz unten */
+@media (min-width: 1000px) {
+    body {
+        padding-bottom: calc(6rem + 1rem);
+    }
+
+    .maskottchen-knopf {
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+/* Drucken: Maskottchen ausblenden, kein Platz unten nötig */
+@media print {
+    .maskottchen {
+        display: none;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+}

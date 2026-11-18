@@ -2,17 +2,14 @@
 // maskottchen.js (unser eigener Code)
 // Setzt das Maskottchen unten rechts auf jede Seite und zeigt
 // eine Sprechblase mit einem kurzen Text zur Seite.
-// Die Animation selbst kommt aus js/maskottchen-komponente.js.
+// Die Animation selbst kommt aus maskottchen/maskottchen-komponente.js.
 // ==========================================================
 
 
 // Einstellungen (Zeiten in Millisekunden)
 const START_VERZOEGERUNG = 800;
-const MS_PRO_ZEICHEN = 40;
-const SPRECHEN_MIN = 1500;
-const SPRECHEN_MAX = 5000;
-const WACKELN_MIN = 8000;
-const WACKELN_MAX = 15000;
+const SPRECHEN_DAUER = 4000;
+const WACKELN_ABSTAND = 12000;
 
 
 // Elemente, die wir später brauchen
@@ -44,14 +41,14 @@ function starteMaskottchen() {
     schliessen.addEventListener("click", klickAufSchliessen);
     document.addEventListener("keydown", pruefeEscape);
 
-    planeWackeln();
+    setInterval(wackleVielleicht, WACKELN_ABSTAND);
     ladeText();
 }
 
 
 // Prüft, ob die Animation benutzt werden kann
 function animationMoeglich() {
-    const komponenteDa = window.customElements !== undefined && customElements.get("slime-mascot") !== undefined;
+    const komponenteDa = customElements.get("slime-mascot") !== undefined;
     const wenigerBewegung = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     return komponenteDa && !wenigerBewegung;
@@ -61,7 +58,7 @@ function animationMoeglich() {
 // Erstellt <aside> mit Knopf und Sprechblase
 // Die Blase ist am Anfang geschlossen (ohne Klasse "ist-offen")
 function erstelleBereich() {
-    let figur = '<img class="maskottchen-bild" src="img/maskottchen/maskottchen.svg" alt="" width="64" height="64">';
+    let figur = '<img class="maskottchen-bild" src="maskottchen/bilder/maskottchen.svg" alt="" width="64" height="64">';
 
     if (animationMoeglich()) {
         figur = '<slime-mascot follow-cursor aria-hidden="true"></slime-mascot>';
@@ -87,12 +84,12 @@ function erstelleBereich() {
 }
 
 
-// Lädt den Text für diese Seite aus data/maskottchen.json
+// Lädt den Text für diese Seite aus maskottchen/maskottchen.json
 async function ladeText() {
     const seite = document.body.dataset.seite;
 
     try {
-        const antwort = await fetch("data/maskottchen.json");
+        const antwort = await fetch("maskottchen/maskottchen.json");
         const texte = await antwort.json();
 
         if (texte[seite]) {
@@ -166,7 +163,7 @@ function pruefeEscape(ereignis) {
 function oeffneBlase() {
     blase.classList.add("ist-offen");
     knopf.setAttribute("aria-expanded", "true");
-    sprich(blasenText.textContent.length);
+    sprich();
 }
 
 
@@ -178,20 +175,13 @@ function schliesseBlase() {
 }
 
 
-// Sprechen: 40 ms pro Zeichen, mindestens 1,5 s, höchstens 5 s
-function sprich(anzahlZeichen) {
-    let dauer = anzahlZeichen * MS_PRO_ZEICHEN;
-
-    if (dauer < SPRECHEN_MIN) {
-        dauer = SPRECHEN_MIN;
-    }
-    if (dauer > SPRECHEN_MAX) {
-        dauer = SPRECHEN_MAX;
-    }
-
+// Sprechen: Mund 4 Sekunden lang bewegen.
+// Ein alter Timer wird vorher gestoppt, damit er den Mund
+// nicht zu früh schließt (z. B. bei schnellem Auf- und Zuklicken).
+function sprich() {
     clearTimeout(sprechTimer);
     spieleAnimation("spricht");
-    sprechTimer = setTimeout(hoereAufZuSprechen, dauer);
+    sprechTimer = setTimeout(hoereAufZuSprechen, SPRECHEN_DAUER);
 }
 
 
@@ -202,23 +192,17 @@ function hoereAufZuSprechen() {
 }
 
 
-// Alle 8 bis 15 Sekunden ein kleines Wackeln (nur bei geschlossener Blase)
-function planeWackeln() {
-    const wartezeit = WACKELN_MIN + Math.random() * (WACKELN_MAX - WACKELN_MIN);
-    setTimeout(wackleVielleicht, wartezeit);
-}
-
+// Alle 12 Sekunden ein kleines Wackeln (nur bei geschlossener Blase)
 function wackleVielleicht() {
     if (!blaseIstOffen()) {
         spieleAnimation("wackeln");
     }
-    planeWackeln();
 }
 
 
 // ----------------------------------------------------------
 // Verbindung zum animierten Maskottchen
-// Nur hier wird die Komponente (js/maskottchen-komponente.js)
+// Nur hier wird die Komponente (maskottchen/maskottchen-komponente.js)
 // angesprochen. Beim Ersatzbild passiert einfach nichts.
 // ----------------------------------------------------------
 function spieleAnimation(name) {

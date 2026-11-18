@@ -64,9 +64,6 @@ html {
 
 body {
     margin: 0;
-    /* Platz unten = Höhe des Maskottchen-Knopfs + Abstand zum Rand,
-     damit das Maskottchen nie die Fußzeile verdeckt */
-    padding-bottom: calc(4rem + 1rem);
     background-color: var(--hintergrund);
     color: var(--text);
     font-family: var(--schrift);
@@ -75,7 +72,6 @@ body {
 }
 
 main {
-    display: block;
     max-width: var(--spalte);
     margin: 0 auto;
     padding: 2rem 1rem 3rem;
@@ -172,7 +168,6 @@ img {
 
 .knopf:hover {
     background-color: var(--akzent-dunkel);
-    color: var(--weiss);
 }
 
 /* Hinweise wie "Inhalte werden geladen" */
@@ -191,46 +186,17 @@ img {
 
 
 /* Seitenübergänge (View Transitions)
-   Beim Wechsel auf eine andere Seite der Website blendet der
-   Inhalt kurz über. Browser ohne Unterstützung wechseln die
-   Seite einfach ganz normal. */
+   Beim Wechsel auf eine andere Seite der Website blendet die
+   ganze Seite kurz über (200 ms). Browser ohne Unterstützung
+   wechseln die Seite einfach ganz normal. */
 
 @view-transition {
     navigation: auto;
 }
 
-/* Kopf und Maskottchen bekommen eigene Namen: sie werden
-   getrennt vom Rest behandelt und bleiben stehen */
-.kopf {
-    view-transition-name: kopf;
-}
-
-.maskottchen {
-    view-transition-name: maskottchen;
-}
-
-/* Kein Überblenden für Kopf und Maskottchen.
-   Nur "animation: none" reicht nicht: dann liegen das alte und das
-   neue Bild beide voll sichtbar übereinander und werden mit
-   "mix-blend-mode: plus-lighter" gemischt. In Safari sieht der Text
-   dadurch kurz doppelt und heller aus. Deshalb: altes Bild ganz
-   ausblenden, nur das neue normal (ohne Mischen) zeigen. */
-::view-transition-old(kopf),
-::view-transition-old(maskottchen) {
-    display: none;
-}
-
-::view-transition-new(kopf),
-::view-transition-new(maskottchen) {
-    animation: none;
-    mix-blend-mode: normal;
-}
-
-/* Der Rest (main und Fußzeile) blendet kurz über */
 ::view-transition-old(root),
 ::view-transition-new(root) {
     animation-duration: 200ms;
-    animation-timing-function: ease;
 }
 
 
@@ -253,7 +219,6 @@ img {
 /* Erst beim Fokus sichtbar */
 .skip-link:focus {
     top: 1rem;
-    color: var(--weiss);
 }
 
 .kopf {
@@ -330,7 +295,7 @@ img {
     color: var(--text-leise);
 }
 
-/* Kacheln mit den vier Vergleichen */
+/* Kacheln mit den zwei Vergleichen */
 .kacheln {
     display: grid;
     grid-template-columns: 1fr;
@@ -453,6 +418,8 @@ img {
     height: 1.5rem;
     margin-right: 0.5rem;
     text-align: center;
+    /* 1.3rem: auf Sicht eingestellt, damit ✓ und ✗ mittig
+       im Kästchen (1.5rem mit Rand) stehen */
     line-height: 1.3rem;
     border: 1px solid currentColor;
     border-radius: var(--rundung-klein);
@@ -608,140 +575,7 @@ tfoot td {
 
 
 /* ----------------------------------------------------------
-   7. Maskottchen
-   ---------------------------------------------------------- */
-
-.maskottchen {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 100;
-}
-
-/* Der Knopf: 64px auf dem Handy, 96px auf dem Laptop */
-.maskottchen-knopf {
-    position: relative;
-    display: block;
-    width: 4rem;
-    height: 4rem;
-    padding: 0;
-    background: none;
-    border: none;
-    border-radius: var(--rundung);
-    cursor: pointer;
-}
-
-/* Die Komponente zeichnet den Schleim in eine quadratische Szene
-   mit viel leerem Rand. Der Körper ist nur ca. 66 % so breit wie
-   die Szene und endet unten bei ca. 75 % der Höhe.
-   - width/height 150 %: 66 % × 1,5 ≈ 100 % → der Körper ist so
-     breit wie der Knopf.
-   - left -25 %: das Element ist 50 % breiter als der Knopf, die
-     Hälfte davon (25 %) schieben wir nach links → mittig.
-   - top -13 %: der Körper endet bei 75 % × 1,5 ≈ 113 % der
-     Knopfhöhe; 13 % nach oben → er steht genau auf der Unterkante.
-   pointer-events: none, damit der überstehende Rand keine Klicks
-   abfängt. Alle Klicks gehen an den Knopf. */
-.maskottchen-knopf slime-mascot {
-    position: absolute;
-    top: -13%;
-    left: -25%;
-    display: block;
-    width: 150%;
-    height: 150%;
-    pointer-events: none;
-}
-
-/* Ersatzbild ohne Animation (schon eng zugeschnitten) */
-.maskottchen-bild {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: bottom;
-}
-
-/* Sprechblase über dem Maskottchen */
-.maskottchen-blase {
-    position: absolute;
-    right: 0;
-    bottom: calc(100% + 0.9rem);
-    width: calc(100vw - 2rem);
-    max-width: 17.5rem;
-    padding: 0.9rem 2.75rem 0.9rem 1rem;
-    background-color: var(--flaeche);
-    color: var(--text);
-    border: 1px solid var(--akzent-hell);
-    border-radius: var(--rundung);
-
-    /* Geschlossen: durchsichtig, etwas tiefer und kleiner.
-     visibility: hidden nimmt die Blase auch aus der Tab-Reihenfolge
-     und versteckt sie vor dem Screenreader.
-     Der Drehpunkt liegt beim Schwänzchen (unten rechts). */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(0.4rem) scale(0.95);
-    transform-origin: calc(100% - 1.85rem) 100%;
-
-    /* Schließen (150 ms): visibility wechselt erst am Ende (Verzögerung
-     150 ms), damit man das Ausblenden noch sieht */
-    transition: opacity 150ms ease-in, transform 150ms ease-in, visibility 0s linear 150ms;
-}
-
-/* Offen: die Klasse "ist-offen" setzt bzw. entfernt maskottchen.js */
-.maskottchen-blase.ist-offen {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-
-    /* Öffnen (220 ms): visibility wechselt sofort, dann wird eingeblendet */
-    transition: opacity 220ms ease-out, transform 220ms ease-out, visibility 0s;
-}
-
-/* Kleines Schwänzchen zum Maskottchen */
-.maskottchen-blase::after {
-    content: "";
-    position: absolute;
-    right: 1.5rem;
-    bottom: -0.4rem;
-    width: 0.7rem;
-    height: 0.7rem;
-    background-color: var(--flaeche);
-    border-right: 1px solid var(--akzent-hell);
-    border-bottom: 1px solid var(--akzent-hell);
-    transform: rotate(45deg);
-}
-
-.maskottchen-text {
-    margin: 0;
-    font-size: 1rem;
-}
-
-.maskottchen-schliessen {
-    position: absolute;
-    top: 0.2rem;
-    right: 0.2rem;
-    width: 2.75rem;
-    height: 2.75rem;
-    padding: 0;
-    background: none;
-    color: var(--text-leise);
-    font-size: 1.4rem;
-    line-height: 1;
-    border: none;
-    border-radius: var(--rundung-klein);
-    cursor: pointer;
-    transition: background-color 150ms ease, color 150ms ease;
-}
-
-.maskottchen-schliessen:hover {
-    background-color: var(--flaeche-hover);
-    color: var(--text);
-}
-
-
-/* ----------------------------------------------------------
-   8. Fußzeile
+   7. Fußzeile
    ---------------------------------------------------------- */
 
 .fuss {
@@ -780,7 +614,7 @@ tfoot td {
 
 
 /* ----------------------------------------------------------
-   9. Hilfsklassen
+   8. Hilfsklassen
    ---------------------------------------------------------- */
 
 /* Nur für Screenreader sichtbar */
@@ -809,7 +643,7 @@ tfoot td {
 
 
 /* ----------------------------------------------------------
-   10. Media Queries
+   9. Media Queries
    ---------------------------------------------------------- */
 
 /* Tablet */
@@ -834,7 +668,7 @@ tfoot td {
         margin: 0;
     }
 
-    /* Kacheln 2 × 2 */
+    /* Kacheln: beide nebeneinander */
     .kacheln {
         grid-template-columns: 1fr 1fr;
     }
@@ -858,17 +692,8 @@ tfoot td {
 
 /* Laptop */
 @media (min-width: 1000px) {
-    body {
-        padding-bottom: calc(6rem + 1rem);
-    }
-
     h1 {
         font-size: 2.5rem;
-    }
-
-    .maskottchen-knopf {
-        width: 6rem;
-        height: 6rem;
     }
 }
 
@@ -878,27 +703,23 @@ tfoot td {
         navigation: none;
     }
 
-    *,
-    ::view-transition-group(*),
-    ::view-transition-old(*),
-    ::view-transition-new(*) {
+    /* !important: gilt immer, egal was weiter oben steht */
+    * {
         transition: none !important;
         animation: none !important;
-        scroll-behavior: auto !important;
     }
 }
 
-/* Drucken: Maskottchen und Navigation ausblenden, heller Hintergrund */
+/* Drucken: Navigation ausblenden, heller Hintergrund
+   (das Maskottchen blendet maskottchen/maskottchen.css aus) */
 @media print {
 
-    .maskottchen,
     .hauptnavigation,
     .skip-link {
         display: none;
     }
 
     body {
-        padding-bottom: 0;
         background-color: var(--weiss);
         color: #000000;
     }

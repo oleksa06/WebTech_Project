@@ -39,7 +39,8 @@ async function ladeVergleich(seite) {
         throw new Error("Datei nicht gefunden: " + seite);
     }
 
-    return antwort.json();
+    const daten = await antwort.json();
+    return daten;
 }
 
 
